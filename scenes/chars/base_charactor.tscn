@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqpvki7ob3f14"]
+
+[ext_resource type="AudioStream" uid="uid://2hgxarg6064y" path="res://assets/sounds/hurt.wav" id="1_1ifwu"]
+[ext_resource type="Script" path="res://scripts/chars/base_charactor.gd" id="1_uniiw"]
+[ext_resource type="AudioStream" uid="uid://bk3w7qcttkh4w" path="res://assets/sounds/jump.wav" id="2_xolxs"]
+[ext_resource type="AudioStream" uid="uid://ctng5ae5d2soc" path="res://assets/sounds/game-over-arcade.mp3" id="3_m5e74"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45bhn"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="base_charactor" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_uniiw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_45bhn")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="player_hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_1ifwu")
+
+[node name="player_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xolxs")
+volume_db = -8.0
+
+[node name="player_die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m5e74")
+volume_db = -8.0

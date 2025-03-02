@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs24gm2n7eo7e"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dyicx"]
+
+[sub_resource type="Gradient" id="Gradient_77hiw"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nmo22"]
+gradient = SubResource("Gradient_77hiw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fydcy"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 180.0
+spread = 180.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 5.0
+color = Color(1, 0.831373, 0.313726, 1)
+color_ramp = SubResource("GradientTexture1D_nmo22")
+
+[node name="enemy_explosion" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_dyicx")
+position = Vector2(0, -1)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_fydcy")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(-20, -20, 40, 40)

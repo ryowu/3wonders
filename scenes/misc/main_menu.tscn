@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://iu2irtq38pe5"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_obvab"]
+[ext_resource type="FontFile" uid="uid://bqm00kvcq3rla" path="res://assets/fonts/PixelOperator8.ttf" id="2_cpble"]
+[ext_resource type="Texture2D" uid="uid://0xby3abn86iy" path="res://assets/imgs/banner.jpg" id="2_utb3r"]
+[ext_resource type="FontFile" uid="uid://cuj5jrox0wftm" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_0sknj"]
+[ext_resource type="AudioStream" uid="uid://dcs5jrnridxm4" path="res://assets/sounds/switch-button.mp3" id="3_a6pt3"]
+[ext_resource type="AudioStream" uid="uid://w74wou18e83e" path="res://assets/sounds/button-pressed.mp3" id="4_26ts7"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_obvab")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_utb3r")
+expand_mode = 1
+
+[node name="logo_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 129.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="logo_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.233925, 0.233925, 0.233925, 1)
+theme_override_fonts/font = ExtResource("3_0sknj")
+theme_override_font_sizes/font_size = 40
+text = "3 wonders"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -107.0
+offset_right = 71.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="start_game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_cpble")
+text = "Start Game"
+
+[node name="exit_game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_cpble")
+text = "Exit"
+
+[node name="button_switch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a6pt3")
+
+[node name="button_pressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_26ts7")
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/start_game" to="." method="_on_start_game_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/start_game" to="." method="_on_button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/exit_game" to="." method="_on_exit_game_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit_game" to="." method="_on_exit_game_pressed"]

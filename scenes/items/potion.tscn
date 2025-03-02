@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7dctmesyl18e"]
+
+[ext_resource type="Texture2D" uid="uid://cevmixxv3fw5n" path="res://assets/tiles/ForestTiles.png" id="1_8ygew"]
+[ext_resource type="Script" path="res://scripts/items/potion.gd" id="2_muh5k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ghy65"]
+radius = 6.0
+height = 18.0
+
+[node name="potion" type="Sprite2D"]
+texture = ExtResource("1_8ygew")
+region_enabled = true
+region_rect = Rect2(242, 353, 12, 15)
+script = ExtResource("2_muh5k")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ghy65")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

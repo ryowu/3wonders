@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="FirstGame"
-run/main_scene="res://scenes/misc/main_menu.tscn"
+config/name="3wonders"
+run/main_scene="res://scenes/stages/stage_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"

@@ -21,7 +21,7 @@ func _on_button_pressed() -> void:
 	#MusicPlayer.stream = load("res://assets/music/stage1.mp3")
 	#MusicPlayer.volume_db = -10
 	#MusicPlayer.play()
-	TransitionScene.change_scene("res://scenes/stages/stage1.tscn")
+	TransitionScene.change_scene("res://scenes/stages/stage_1.tscn")
 
 func _on_exit_game_pressed() -> void:
 	get_tree().quit()

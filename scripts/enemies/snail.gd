@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 
 
 func enemy_hurt() -> void:
-	if hurting: return
+	if hurting or !animated_sprite_2d.visible: return
 	hurting = true
 	hp -= 1
 	enemy_hurt_audio.play()

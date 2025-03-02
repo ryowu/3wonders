@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b78hknj6gyvce"]
+
+[ext_resource type="PackedScene" uid="uid://cv0jlduj1uh54" path="res://scenes/stages/base_stage.tscn" id="1_86i13"]
+[ext_resource type="PackedScene" uid="uid://cj0303xy1h1gd" path="res://scenes/enemies/snail.tscn" id="2_7x4wd"]
+
+[node name="stage2" instance=ExtResource("1_86i13")]
+
+[node name="Snail" parent="." index="7" instance=ExtResource("2_7x4wd")]
+position = Vector2(429, 51)

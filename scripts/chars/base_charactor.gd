@@ -8,6 +8,7 @@ var direction_current: float = 1
 var dying := false
 
 var hp := 10
+var hp_max := 10
 var speed := 110.0
 var jump_velocity := -300.0
 
@@ -92,7 +93,6 @@ func hurt() -> void:
 
 	# Update the health bar
 	if hp_bar:
-		print(hp)
 		hp_bar.value = hp
 
 	if hp <= 0:
@@ -136,3 +136,7 @@ func pickup_coin() -> void:
 	Central.add_coin()
 	var base_stage = get_tree().current_scene
 	base_stage.update_coin_amount()
+
+func recover(recoverd_hp: int) -> void:
+	hp += recoverd_hp
+	hp_bar.value = hp

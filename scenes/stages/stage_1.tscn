@@ -123,5 +123,8 @@ position = Vector2(1926, 16)
 
 [node name="Potions" type="Node" parent="." index="13"]
 
-[node name="potion" parent="." index="14" instance=ExtResource("8_l7vlr")]
-position = Vector2(2152, -105)
+[node name="potion" parent="Potions" index="0" instance=ExtResource("8_l7vlr")]
+position = Vector2(2153, -105)
+
+[node name="potion2" parent="Potions" index="1" instance=ExtResource("8_l7vlr")]
+position = Vector2(160, 23)

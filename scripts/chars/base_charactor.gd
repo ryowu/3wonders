@@ -139,4 +139,6 @@ func pickup_coin() -> void:
 
 func recover(recoverd_hp: int) -> void:
 	hp += recoverd_hp
+	if hp > hp_max:
+		hp = hp_max
 	hp_bar.value = hp

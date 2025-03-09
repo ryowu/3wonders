@@ -4,6 +4,7 @@ extends "res://scripts/chars/base_charactor.gd"
 
 func _ready() -> void:
 	hp = 5
+	hp_max = 5
 	speed = 80
 	jump_velocity = -238
 	init_hp_bar()

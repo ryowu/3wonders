@@ -50,7 +50,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		TransitionScene.change_scene("res://scenes/misc/main_menu.tscn")
+		TransitionScene.change_scene_fade("res://scenes/misc/main_menu.tscn")
 		return
 
 	if event.is_action_pressed("LeftShift"):
